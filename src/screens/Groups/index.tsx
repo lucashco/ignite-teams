@@ -7,6 +7,7 @@ import {GroupCard} from '@components/GroupCard';
 import * as S from './styles';
 import { FlatList, ListRenderItem } from 'react-native';
 import { Button } from '@components/Button';
+import ListEmpty from '@components/ListEmpty';
 
 export function Groups() {
   const [groups, setGroups] = useState([]);
@@ -25,10 +26,14 @@ export function Groups() {
       />
 
       <FlatList
+        contentContainerStyle={{ flex: 1 }}
         data={groups}
         renderItem={_renderItem}
         keyExtractor={item => item}
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={<ListEmpty
+          message='Que tal cadastrar a primeira turma'
+        />}
       />
 
       <Button>Adicionar</Button>
