@@ -6,6 +6,7 @@ import {GroupCard} from '@components/GroupCard';
 
 import * as S from './styles';
 import { FlatList, ListRenderItem } from 'react-native';
+import { Button } from '@components/Button';
 
 export function Groups() {
   const [groups, setGroups] = useState([]);
@@ -29,6 +30,8 @@ export function Groups() {
         keyExtractor={item => item}
         showsVerticalScrollIndicator={false}
       />
+
+      <Button>Adicionar</Button>
 
     </S.Container>
   )
