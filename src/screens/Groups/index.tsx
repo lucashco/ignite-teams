@@ -36,7 +36,7 @@ export function Groups() {
         />}
       />
 
-      <Button>Adicionar</Button>
+      <Button>Criar nova turma</Button>
 
     </S.Container>
   )

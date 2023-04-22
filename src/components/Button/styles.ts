@@ -1,13 +1,20 @@
 import styled from "styled-components/native";
 
-export const Container = styled.TouchableOpacity`
+export type ButtonTypeStyleProps = 'primary' | 'secondary';
+
+type ButtonProps = {
+  variant: ButtonTypeStyleProps;
+}
+
+export const Container = styled.TouchableOpacity<ButtonProps>`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   border-radius: 6px;
   height: 56px;
-  background-color: ${({ theme }) => theme.COLORS.GREEN_700};
+  background-color: ${({ theme, variant }) => variant === 'primary'
+    ? theme.COLORS.GREEN_700 : theme.COLORS.RED_DARK};
 `
 
 export const ButtonText = styled.Text`
