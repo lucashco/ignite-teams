@@ -1,4 +1,4 @@
-export default {
+const theme = {
   COLORS: {
     WHITE: '#FFFFFF',
 
@@ -27,3 +27,7 @@ export default {
     XL: 24
   }
 } as const;
+
+export type ThemeType = typeof theme; 
+export default theme
+
