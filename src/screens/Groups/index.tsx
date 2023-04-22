@@ -1,4 +1,5 @@
 import { Header } from '@components/Header';
+import {Highlight} from '@components/Highlight';
 
 import * as S from './styles';
 
@@ -6,7 +7,11 @@ export function Groups() {
   return (
     <S.Container>
       <Header showBackButton />
-      <S.Title>Groups</S.Title>
+
+      <Highlight
+        title='Turmas'
+        subtitle='Jogue com a sua turma'
+      />
     </S.Container>
   )
 }
