@@ -7,7 +7,7 @@ import { IconButton } from '@components/IconButton';
 import { Input } from '@components/Input';
 import { Filter } from '@components/Filter';
 import { PlayerCard } from "@components/PlayerCard";
-import ListEmpty from "@components/ListEmpty";
+import { ListEmpty } from "@components/ListEmpty";
 import { Button } from "@components/Button";
 
 import * as S from './styles';
