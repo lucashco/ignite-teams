@@ -18,7 +18,7 @@ export function Groups() {
 
   return (
     <S.Container>
-      <Header showBackButton />
+      <Header />
 
       <Highlight
         title='Turmas'
