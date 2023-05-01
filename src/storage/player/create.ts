@@ -12,7 +12,7 @@ export async function createPlayer(newPlayer: Player, group: string): Promise<vo
     const storedPlayers = await getPlayersByGroup(group);
 
     const playerAlreadyExists = storedPlayers
-      .filter(player => player.name === newPlayer.name);
+      .find(player => player.name === newPlayer.name);
 
     if (playerAlreadyExists) {
       throw new AppError('Esse jogador já está em um time');
