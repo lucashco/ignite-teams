@@ -1,18 +1,38 @@
 import { useState } from 'react';
+import { Alert } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 
 import { Header } from '@components/Header';
 import { Highlight } from '@components/Highlight';
+import { Input } from '@components/Input';
+
+import { createGroup } from '@storage/group/create';
+import { AppError } from '@utils/AppError';
 
 import * as S from './styles';
-import { Input } from '@components/Input';
 
 export function NewGroup() {
   const [group, setGroup] = useState('')
   const navigation = useNavigation();
 
-  function handleAddPlayers() {
-    navigation.navigate('players', { group, });
+  async function handleCreateGroup() {
+    try {
+
+      if (group.trim().length === 0) {
+        return Alert.alert('Novo grupo','Informe o nome do grupo.');
+      }
+
+      await createGroup(group)
+      navigation.navigate('players', { group, });
+
+    } catch (error) {
+      if (error instanceof AppError) {
+        Alert.alert('Novo grupo', error.message);
+      } else {
+        Alert.alert('Novo grupo', 'Não foi possível criar um novo grupo.');
+        console.log(error);
+      }
+    }
   }
 
   function handleGroupChangeText(text: string) {
@@ -37,7 +57,7 @@ export function NewGroup() {
         />
 
         <S.ButtonWithMargin
-          onPress={handleAddPlayers}
+          onPress={handleCreateGroup}
         >
           Criar
         </S.ButtonWithMargin>
